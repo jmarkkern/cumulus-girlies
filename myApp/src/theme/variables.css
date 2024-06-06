@@ -1,12 +1,35 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+
+/* our color scheme:
+vista blue    #8294c4
+periwinkle    #afbad7
+lavendar      #dbdfea
+light orange  #ffead2
+*/
+
+:root {
+    --ion-background-color: #ffffff;
+    --ion-text-color: #000000;
+}
+
 :root.ios {
     --ion-background-color: #ffffff;
-    --ion-text-color: #000000
+    --ion-text-color: #000000;
+}
+
+:root.md {
+    --ion-background-color: #ffffff;
+    --ion-text-color: #000000;
 }
 
 ion-tab-bar {
     --background: #dbdfea;
     --color: #000000;
     --color-selected: #8294c4;
+    --border: none;
+}
+
+ion-toolbar {
+    --background: #dbdfea;
 }
