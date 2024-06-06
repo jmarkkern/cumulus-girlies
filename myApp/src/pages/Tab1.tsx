@@ -23,7 +23,7 @@ const Tab1: React.FC = () => {
 
         
         <TSelect /> 
-        <Spinner/>
+        {/* <Spinner/> */}
         <TCard /> 
         <TCard /> 
       </IonContent>
