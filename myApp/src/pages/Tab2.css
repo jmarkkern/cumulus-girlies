@@ -1,0 +1,11 @@
+ion-button {
+    --background: #afbad7;
+    --color: #000;
+    --background-activated: #8294c4;
+    --color-activated: #fff;
+    text-transform: none;
+}
+
+ion-datetime {
+    --background: #dbdfea;
+}
