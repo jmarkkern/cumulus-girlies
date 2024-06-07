@@ -4,7 +4,7 @@ http://ionicframework.com/docs/theming/ */
 /* our color scheme:
 vista blue    #8294c4
 periwinkle    #afbad7
-lavendar      #dbdfea
+lavender      #dbdfea
 light orange  #ffead2
 */
 
@@ -29,6 +29,11 @@ ion-tab-bar {
     --color-selected: #8294c4;
     --border: none;
 }
+
+ion-icon {
+    font-size: 30px;
+    --ionicon-stroke-width: 48px;
+  }
 
 ion-toolbar {
     --background: #dbdfea;

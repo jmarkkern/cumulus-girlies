@@ -1,11 +1,26 @@
-ion-button {
-    --background: #afbad7;
-    --color: #000;
-    --background-activated: #8294c4;
-    --color-activated: #fff;
-    text-transform: none;
-}
+.calendar-page{
+    ion-segment {
+        background-color: #dbdfea;
+    }
 
-ion-datetime {
-    --background: #dbdfea;
+    ion-segment-button {
+        --color: #000;
+        --background-checked: #afbad7;
+        --color-checked: #000;
+        --indicator-color: #8294c4;
+        --border-color: transparent;
+        --box-shadow: none;
+        text-transform: none;
+        --ripple-color: #dbdfea;
+    }
+
+    ion-card {
+        --background: #dbdfea;
+        --color: #000;
+    }
+
+    ion-card-title {
+        --color: #000;
+        --box-shadow: none;
+    }
 }
