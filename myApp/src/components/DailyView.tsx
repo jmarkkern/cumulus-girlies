@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonPage, IonToolbar, IonTitle, IonList, IonItem, IonLabel } from '@ionic/react';
+import { IonPage, IonToolbar, IonTitle, IonList, IonItem, IonLabel, IonCardHeader, IonCard, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/react';
 import './DailyView.css';
 
 const DailyView: React.FC = () => {
@@ -12,22 +12,22 @@ const DailyView: React.FC = () => {
   const today = new Date().toLocaleDateString();
 
   return (
-    <IonPage className="daily-view-page" >
-      <IonToolbar className="ion-text-center">
-        <IonTitle>Today</IonTitle>
-        <IonTitle size="small">{today}</IonTitle>
-      </IonToolbar>
-      <div className="custom-content">
-        <IonList className="time-list">
+    <IonCard className='daily-view'>
+      <IonCardHeader className="ion-text-center">
+        <IonCardTitle>Today</IonCardTitle>
+        <IonCardSubtitle >{today}</IonCardSubtitle>
+      </IonCardHeader>
+      <IonCardContent>
+        <IonList lines='none' className="time-list">
           {timeSlots.map((slot, index) => (
-            <IonItem key={index} className="time-slot">
+            <IonItem key={index} lines='none' className="time-slot">
               <IonLabel className="time-label">{slot}</IonLabel>
               <div className="separator"></div>
             </IonItem>
           ))}
         </IonList>
-      </div>
-    </IonPage>
+      </IonCardContent>
+    </IonCard>
   );
 };
 

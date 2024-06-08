@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonCard, IonCardTitle, IonCardContent } from "@ionic/react";
+import { IonCard, IonCardTitle, IonCardContent, IonDatetime } from "@ionic/react";
 import DailyView from "./DailyView";
 
 const Calendar: React.FC<{calendarMode: string}> = ({ calendarMode }) => {
@@ -8,17 +8,14 @@ const Calendar: React.FC<{calendarMode: string}> = ({ calendarMode }) => {
   switch (calendarMode) {
     case 'month':
       content = (
-        <IonCard className='calendar-page' id='calendar'>
-          <IonCardTitle>Month</IonCardTitle>
-          <IonCardContent>
-            This card will show a month view.
-          </IonCardContent>
+        <IonCard className='calendar-page'>
+        <IonDatetime presentation='date'></IonDatetime>
         </IonCard>
       );
       break;
     case 'week':
       content = (
-        <IonCard className='calendar-page' id='calendar'>
+        <IonCard className='calendar-page'>
           <IonCardTitle>Week</IonCardTitle>
           <IonCardContent>
             This card will show a week view.
@@ -28,13 +25,7 @@ const Calendar: React.FC<{calendarMode: string}> = ({ calendarMode }) => {
       break;
     case 'day':
       content = (
-        <IonCard className='calendar-page' id='calendar' style={{ minHeight: '750px' }}>
-          <IonCardTitle>Day</IonCardTitle>
-          <IonCardContent>
-            This card will show a day view.
-          </IonCardContent>
-          <DailyView />
-        </IonCard>
+        <DailyView></DailyView>
       );
       break;
     default:

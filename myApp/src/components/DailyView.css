@@ -1,30 +1,27 @@
-.daily-view-page {
-  height: 100vh; /* Ensure the page takes up the full viewport height */
-  overflow: hidden; /* Hide overflow to prevent scrolling */
-}
+.daily-view {
 
-.custom-content {
-  height: 50; /* Subtract toolbar height if using IonToolbar */
-  overflow-y: auto; /* Enable vertical scrolling within the content as needed */
-}
+  ion-card-content {
+    padding: 0;
+  }
 
-.time-list {
-  list-style-type: none; /* Remove default list styling */
-  padding: 0;
-  margin: 0;
-}
+  .time-list {
+    padding: 0;
+    margin: 0;
+  }
 
-.time-slot {
-  padding: 10px; /* Adjust padding as needed */
-}
+  .time-slot {
+    padding: 10px 0; /* Adjust padding as needed */
+  }
 
-.time-label {
-  font-size: 16px; /* Example: Adjust font size */
-}
+  ion-label.time-label {
+    font-size: 12px !important; /* Example: Adjust font size */
+  }
 
-.separator {
-  width: 100%;
-  height: 1px;
-  background-color: #ccc;
-  margin-top: 5px; /* Example: Adjust margin if needed */
+  .separator {
+    width: calc(82%);
+    height: 1px;
+    background-color: #000;
+    transform: translate(0px,-2px);
+    margin-top: 5px; /* Example: Adjust margin if needed */
+  }
 }
