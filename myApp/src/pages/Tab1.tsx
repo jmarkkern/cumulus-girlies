@@ -3,9 +3,14 @@ import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import TCard from '../components/TaskCard';
 import TSelect from '../components/TaskSelect';
-import Spinner from '../components/Spinner';
+
 
 const Tab1: React.FC = () => {
+
+
+
+// Render Spinner component
+
   return (
     <IonPage>
       <IonHeader>
@@ -23,7 +28,8 @@ const Tab1: React.FC = () => {
 
         
         <TSelect /> 
-        {/* <Spinner/> */}
+        
+       
         <TCard /> 
         <TCard /> 
       </IonContent>

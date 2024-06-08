@@ -1,45 +1,43 @@
-import React from 'react';
-import { IonButton, IonIcon } from '@ionic/react';
-import { heart } from 'ionicons/icons';
+import React, { useState } from 'react';
+import { IonButton, IonIcon, IonModal, IonHeader, IonContent, IonToolbar, IonTitle, IonButtons } from '@ionic/react';
+import pickSvg from '../assets/pick.svg';
+import sortSvg from '../assets/sort.svg';
+import './TaskSelect.css'; 
+import Spinner from '../components/Spinner';
 
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+const TSelect: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const data = [
+    { text: 'Club Board Meeting', style: { backgroundColor: '#ACB2D6', textColor: 'black' } },
+    { text: 'Run a Mile', style: { backgroundColor: '#FFEBD2', textColor: 'black' } },
+    { text: 'Homework 3', style: { backgroundColor: '#ACB2D6', textColor: 'black' } },
+    { text: 'Clean Room', style: { backgroundColor: '#FFEBD2', textColor: 'black' } }
+  ];
 
-import pickSvg from "../assets/pick.svg";
-import sortSvg from "../assets/sort.svg"
-
-
-import './TaskSelect.css';
-
-function TSelect() {
-    const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <>
       <IonButton>Upcoming</IonButton>
       <IonButton shape="round">Completed</IonButton>
       
-      <IonButton onClick={handleShow}>
-        <IonIcon slot="icon-only" src={pickSvg} ></IonIcon>     
+      <IonButton onClick={() => setIsOpen(true)}>
+        <IonIcon slot="icon-only" src={pickSvg}></IonIcon>
       </IonButton>
+
+      <IonModal isOpen={isOpen} onDidDismiss={() => setIsOpen(false)}>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Help Getting Started?</IonTitle>
+            <IonButtons slot="end">
+              <IonButton onClick={() => setIsOpen(false)}>Close</IonButton>
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+
+        <IonContent className="ion-padding">
+          <Spinner data={data} />
+        </IonContent>
+      </IonModal>
       
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Pick a</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
       
       <IonButton shape="round">
         <IonIcon slot="icon-only" src={sortSvg}></IonIcon>
@@ -47,4 +45,5 @@ function TSelect() {
     </>
   );
 }
+
 export default TSelect;

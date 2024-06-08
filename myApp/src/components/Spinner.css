@@ -1,0 +1,37 @@
+/* Spinner.css */
+button {
+    padding: 15px 25px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 120px;
+    padding-right: 8px;
+    padding-left: 8px;
+    min-height: 30px;
+    
+  }
+  
+  .spin-button {
+    background-color: #4caf50; 
+    color: white;
+    border-radius: 5px;
+    width: 80px;
+    margin-top: 12px;
+  }
+  
+  .roulette-button {
+    border-radius: 5px;
+  }
+  
+  .button:hover {
+    background-color: #317034;
+  }
+
+  .prize-message{
+    border-radius: 5px;
+    width: 110px;
+    background-color: #8294C4; 
+
+  }
+  

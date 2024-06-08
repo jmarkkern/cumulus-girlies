@@ -20,3 +20,11 @@ ion-button {
     --padding-bottom: 10px;
     /* --offset-x: 90px */
   }
+
+  /* :host {
+    --background: #c0bdc7;
+  } */
+
+ion-modal{
+    --background: #e7e5e5;
+  } 

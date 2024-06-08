@@ -1,24 +1,96 @@
-import React from 'react';
-import { Wheel } from 'react-custom-roulette';
+import React, { useState, useEffect } from "react";
+import Button from 'react-bootstrap/Button';
+import { Wheel } from "react-custom-roulette";
 
-const data = [
-  { option: 'Option 1', style: { backgroundColor: 'green', textColor: 'black' } },
-  { option: 'Option 2', style: { backgroundColor: 'white' } },
-  { option: 'Option 3' },
-];
+import './Spinner.css';
 
-function Spinner() {
+interface RouletteDataItem {
+    text: string;
+    style?: {
+      backgroundColor?: string;
+      textColor?: string;
+    };
+  }
+  
+  interface SpinnerProps {
+    data: RouletteDataItem[];
+  }
+  
+  
+  const Spinner = ({ data }) => {
+  const [mustSpin, setMustSpin] = useState(false);
+  const [prizeNumber, setPrizeNumber] = useState(0);
+  const [rouletteData, setRouletteData] = useState(data);
+
+  const handleSpinClick = () => {
+    const newPrizeNumber = Math.floor(Math.random() * data.length);
+    setPrizeNumber(newPrizeNumber);
+    setMustSpin(true);
+  };
+
+  useEffect(() => {
+    const addShortString = data.map((item: { text: string; style: any; }) => ({
+      completeOption: item.text,
+      option: item.text.length >= 30 ? item.text.substring(0, 30).trimEnd() + "..." : item.text,
+      style: item.style || {}
+    }));
+    setRouletteData(addShortString);
+  }, [data]);
+
   return (
-    <div style={{ width: '300px', height: '300px' }}>
-      <Wheel
-        mustStartSpinning={true} // Whether to start spinning automatically when mounted
-        prizeNumber={3} // The index of the option to stop at
-        data={data} // The data for each option
-        backgroundColors={['#3e3e3e', '#df3428']} // Background color for each segment
-        textColors={['#ffffff']} // Text color for each segment
-      />
-    </div>
+    <>
+      <div className="roulette-container">
+        <Wheel
+          mustStartSpinning={mustSpin}
+          spinDuration={0.2}
+          prizeNumber={prizeNumber}
+          data={rouletteData.map((item: { option: any; style: any; }) => ({
+            option: item.option,
+            style: item.style
+          }))}
+          outerBorderColor={"#ccc"}
+          outerBorderWidth={9}
+          innerBorderColor={"#f2f2f2"}
+          radiusLineColor={"transparent"}
+          radiusLineWidth={1}
+          textColors={["#f5f5f5"]}
+          textDistance={55}
+          fontSize={10}
+          backgroundColors={[
+            "#3f297e",
+            "#175fa9",
+            "#169ed8",
+            "#239b63",
+            "#64b031",
+            "#efe61f",
+            "#f7a416",
+            "#e6471d",
+            "#dc0936",
+            "#e5177b",
+            "#be1180",
+            "#871f7f"
+          ]}
+          onStopSpinning={() => {
+            setMustSpin(false);
+          }}
+        />
+
+        <button className="button spin-button roulette-button" onClick={handleSpinClick}>
+          Spin
+        </button>
+      </div>
+      <br />
+      <button
+        className="prize-message"
+        onClick={handleSpinClick}
+        disabled={mustSpin}
+      >
+        {!mustSpin ? rouletteData[prizeNumber].completeOption : "Spinning..."}
+      </button>
+    </>
   );
-}
+};
 
 export default Spinner;
+
+
