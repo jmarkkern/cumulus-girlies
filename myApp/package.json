@@ -1,11 +1,14 @@
 {
   "name": "myApp",
   "private": true,
+  "homepage": "https://jmarkkern.github.io/cumulus-girlies",
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "ionic build",
     "preview": "vite preview",
     "test.e2e": "cypress run",
     "test.unit": "vitest",
@@ -43,10 +46,12 @@
     "cypress": "^13.5.0",
     "eslint": "^8.35.0",
     "eslint-plugin-react": "^7.32.2",
+    "gh-pages": "^6.1.1",
     "jsdom": "^22.1.0",
     "terser": "^5.4.0",
     "typescript": "^5.1.6",
     "vite": "5.2.12",
+    "vite-plugin-pwa": "^0.20.0",
     "vitest": "^0.34.6"
   },
   "description": "An Ionic project"
