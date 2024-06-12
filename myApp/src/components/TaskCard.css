@@ -1,12 +1,24 @@
 ion-card {
     --background:#8294c4;
-    --color: #9efff0;
+    --color: #000000;
   }
   
   ion-card-title {
-    --color: #52ffe4;
+    --color:#d2fcf6;
   }
   
   ion-card-subtitle {
-    --color: #d1fff8;
+    --color: #000000;
+    --font-size: 2px;
+  }
+
+  ion-checkbox {
+    --checkbox-background-checked: #d5d2e4;
+    --checkbox-background:var(--background);
+    --checkmark-color:var(--color);
+  }
+  
+  ion-checkbox::part(container) {
+    border-radius: 10px;
+    border: 2px solid #fbfbfb;
   }

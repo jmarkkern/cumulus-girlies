@@ -55,7 +55,7 @@ interface RouletteDataItem {
           radiusLineWidth={1}
           textColors={["#f5f5f5"]}
           textDistance={55}
-          fontSize={10}
+          fontSize={16}
           backgroundColors={[
             "#3f297e",
             "#175fa9",
@@ -80,8 +80,9 @@ interface RouletteDataItem {
         </button>
       </div>
       <br />
+      
       <button
-        className="prize-message"
+        className={`prize-message ${mustSpin ? 'shake' : ''}`}
         onClick={handleSpinClick}
         disabled={mustSpin}
       >
