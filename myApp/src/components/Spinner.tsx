@@ -92,6 +92,8 @@ interface RouletteDataItem {
   );
 };
 
+// citation: https://codesandbox.io/p/sandbox/elysium-roulette-knkjbh?file=%2Fsrc%2FRoulette.js%3A30%2C12-30%2C26 
+
 export default Spinner;
 
 
